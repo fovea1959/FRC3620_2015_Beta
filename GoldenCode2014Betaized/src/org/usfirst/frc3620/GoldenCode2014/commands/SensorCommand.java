@@ -53,7 +53,7 @@ public class SensorCommand extends Command {
             if (distance <= 12 && distance >= 10) {
                 Robot.sensorSubsystem.sendToArduino(SensorSubsystem.GREEN);
             } else {
-                if (Robot.driverStation.getAlliance() == DriverStation.Alliance.kBlue) {
+                if (Robot.driverStation.getAlliance() == DriverStation.Alliance.Blue) {
                     Robot.sensorSubsystem.sendToArduino(SensorSubsystem.BLUE);
                 } else {
                     Robot.sensorSubsystem.sendToArduino(SensorSubsystem.RED);

@@ -16,6 +16,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc3620.GoldenCode2014.Robot;
 import org.usfirst.frc3620.GoldenCode2014.RobotMode;
 import org.usfirst.frc3620.GoldenCode2014.commands.DriveArcadeCommand;
+import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 /**
  *
  */
@@ -103,8 +104,8 @@ public class DriveSubsystem extends Subsystem {
         SmartDashboard.putBoolean("okToFire", false);
         setReverseMode(false);
         resetEncoders();
-        driveEncoder1.start();
-        driveEncoder2.start();
+        //driveEncoder1.start(); stop/start methods removed. start automatically at creation of device
+        //driveEncoder2.start();
     }
     /**
      * add any needed code to run if the mode changes.

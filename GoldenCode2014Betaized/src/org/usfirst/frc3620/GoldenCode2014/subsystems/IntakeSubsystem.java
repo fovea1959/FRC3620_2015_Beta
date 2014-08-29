@@ -9,7 +9,7 @@
 // it from being updated in the future.
 package org.usfirst.frc3620.GoldenCode2014.subsystems;
 
-import edu.wpi.first.wpilibj.DriverStationLCD;
+
 import edu.wpi.first.wpilibj.SpeedController;
 import org.usfirst.frc3620.GoldenCode2014.RobotMap;
 import org.usfirst.frc3620.GoldenCode2014.commands.*;
@@ -81,8 +81,6 @@ public class IntakeSubsystem extends Subsystem {
         if (power != lastPower) {
             telemetryTable.putNumber("intake.power", power);
             String s = (power == 0) ? "off    " : ((power > 0) ? "reverse" : "forward");
-            Robot.driverStationLCD.println(DriverStationLCD.Line.kUser2, 1, "intake: " + s);
-            Robot.driverStationLCD.updateLCD();
             lastPower = power;
         }
     }

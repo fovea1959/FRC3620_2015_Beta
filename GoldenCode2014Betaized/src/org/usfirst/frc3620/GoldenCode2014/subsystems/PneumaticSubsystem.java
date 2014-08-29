@@ -174,8 +174,6 @@ public class PneumaticSubsystem extends Subsystem {
      
      void updateDriverStationClampDisplay (DoubleSolenoid.Value v) {
          String s = (v == DoubleSolenoid.Value.kOff) ? "off " : ((v == DoubleSolenoid.Value.kReverse) ? "up  " : "down");
-         Robot.driverStationLCD.println(DriverStationLCD.Line.kUser3, 1, "clamp: " + s);
-         Robot.driverStationLCD.updateLCD();
      }
     
 }

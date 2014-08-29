@@ -9,7 +9,6 @@
 // it from being updated in the future.
 package org.usfirst.frc3620.GoldenCode2014;
 import edu.wpi.first.wpilibj.DriverStation;
-import edu.wpi.first.wpilibj.DriverStationLCD;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Preferences;
 import edu.wpi.first.wpilibj.command.Command;
@@ -31,7 +30,7 @@ public class Robot extends IterativeRobot {
     static RobotMode currentRobotMode;
     static NetworkTable telemetryTable, visionTable;
     public static DriverStation driverStation;
-    public static DriverStationLCD driverStationLCD;
+    public static DriverStation driverStationLCD;
     public static OI oi;
     public static Preferences preferences;
     static RobotMode previousRobotMode;
@@ -50,7 +49,7 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
         RobotMap.init();
         driverStation = DriverStation.getInstance();
-        driverStationLCD = DriverStationLCD.getInstance();
+        driverStationLCD = DriverStation.getInstance();
         // make sure we have tables for the commands to use
         telemetryTable = NetworkTable.getTable("telemetry");
         visionTable = NetworkTable.getTable("visionTable");
@@ -127,6 +126,7 @@ public class Robot extends IterativeRobot {
         broadcastModeChangeToSubsystems();
         /* Mike: we moved this to the modeChanged method in the DriveSubSystem :) */
         /* driveSubsystem.setReverseMode(false); */
+        
     }
     /**
      * This function is called periodically during operator control
