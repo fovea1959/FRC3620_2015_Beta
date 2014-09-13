@@ -50,13 +50,14 @@ public class DriveSubsystem extends Subsystem {
         telemetryTable.putNumber("js.z", hid.getZ());
         telemetryTable.putNumber("js.throttle", hid.getThrottle());
         telemetryTable.putNumber("js.twist", hid.getTwist());
-        double rotate = hid.getThrottle();
+        double rotate = hid.getX();
         double move = hid.getY();
         //if (SmartDashboard.getBoolean("drive.squared")) {
         double r2 = Math.sqrt(Math.abs(rotate * rotate * rotate));
         if (rotate < 0) {
             r2 = -r2;
         }
+       
         double m2 = Math.abs(move * move);
         if (move < 0) {
             m2 = -m2;

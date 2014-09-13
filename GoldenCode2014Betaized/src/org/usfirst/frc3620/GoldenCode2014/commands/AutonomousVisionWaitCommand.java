@@ -25,7 +25,7 @@ public class  AutonomousVisionWaitCommand extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
          t0 = System.currentTimeMillis();
-        Robot.visionSubsystem.processOne(null);
+       
         System.out.println("Pray to Dean Kamen!");
     }
     // Called repeatedly when this Command is scheduled to run
@@ -40,7 +40,7 @@ public class  AutonomousVisionWaitCommand extends Command {
             System.out.println ("timed out");
             rv = true;
         } else {
-            rv = Robot.visionSubsystem.isGoalIsHot();
+            
             if (rv) System.out.println("goal was hot!");
         }
         return rv;

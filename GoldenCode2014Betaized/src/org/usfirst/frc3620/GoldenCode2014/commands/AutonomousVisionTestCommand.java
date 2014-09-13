@@ -26,7 +26,7 @@ public class  AutonomousVisionTestCommand extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
         t0 = System.currentTimeMillis();
-        Robot.visionSubsystem.processOne(null);
+       
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
@@ -39,7 +39,7 @@ public class  AutonomousVisionTestCommand extends Command {
             System.out.println ("timed out");
             rv = true;
         } else {
-            rv = Robot.visionSubsystem.isGoalIsHot();
+            
             if (rv) System.out.println("goal was hot!");
         }
         return rv;
