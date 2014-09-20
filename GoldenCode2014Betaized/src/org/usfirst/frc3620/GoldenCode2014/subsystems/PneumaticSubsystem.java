@@ -19,7 +19,7 @@ import org.usfirst.frc3620.GoldenCode2014.Robot;
  *
  */
 public class PneumaticSubsystem extends Subsystem {
-    boolean DEBUG = false;
+    boolean DEBUG = true;
     long hoopT0 = 0;
     long clampT0 = 0;
     
@@ -57,7 +57,7 @@ public class PneumaticSubsystem extends Subsystem {
     }
     public void hoopDown() {
         if (DEBUG) {
-            
+            System.out.println("hoop down");
         }
         loaderCylinder1.set(DoubleSolenoid.Value.kForward);
         loadCylinder2.set(DoubleSolenoid.Value.kForward);
@@ -68,7 +68,7 @@ public class PneumaticSubsystem extends Subsystem {
     }
     public void hoopUp() {
         if (DEBUG) {
-            
+            System.out.println("hoop up");
         }
         loaderCylinder1.set(DoubleSolenoid.Value.kReverse);
         loadCylinder2.set(DoubleSolenoid.Value.kReverse);
