@@ -110,7 +110,7 @@ public class PneumaticSubsystem extends Subsystem {
     public void init() {
         hoopUp();
         pusherPushIn();
-        updateDriverStationClampDisplay(clampCylinder.get());
+        //updateDriverStationClampDisplay(clampCylinder.get());
     }
     /**
      * add any needed code to run if the mode changes.
@@ -121,11 +121,11 @@ public class PneumaticSubsystem extends Subsystem {
     /**
      * add any needed code to run everytime periodic is called.
      */
-    boolean lastCompressorSwitch = compressor1.getPressureSwitchValue();
+    boolean lastCompressorSwitch = getCompressorSwitchValue();
     boolean lastHoopDown = getHoopDown();
     public void periodic() {
         //  
-        boolean b = compressor1.getPressureSwitchValue();
+        boolean b = getCompressorSwitchValue();
         if (b != lastCompressorSwitch) {
           Robot.getTelemetryTable().putBoolean("pneumatics.pressure", b);
           lastCompressorSwitch = b;
@@ -135,6 +135,11 @@ public class PneumaticSubsystem extends Subsystem {
           Robot.getTelemetryTable().putBoolean("hoop.armdown", b);
           lastHoopDown = b;
         }
+    }
+    boolean getCompressorSwitchValue() {
+    	// fix this when WPILIB gets fixed
+    	//return compressor1.getPressureSwitchValue();
+    	return false;
     }
     public void clampDown(){
         clampT0 = 0;
