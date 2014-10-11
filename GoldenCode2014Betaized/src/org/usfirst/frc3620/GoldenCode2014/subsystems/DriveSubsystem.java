@@ -63,11 +63,11 @@ public class DriveSubsystem extends Subsystem {
             m2 = -m2;
         }
         if (reverse == true) {
-            primaryDrive.arcadeDrive(-m2, r2);
+            primaryDrive.arcadeDrive(-m2,r2);
             turboDrive.arcadeDrive(-m2, r2);
         } else {
-            primaryDrive.arcadeDrive(m2, r2);
-            turboDrive.arcadeDrive(m2, r2);
+            primaryDrive.arcadeDrive(move, -rotate);
+            turboDrive.arcadeDrive(move, -rotate);
         }
     }
     public void toggleReverseMode() {

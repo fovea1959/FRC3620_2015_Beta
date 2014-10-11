@@ -1,5 +1,7 @@
 package org.usfirst.frc.team3620.robot;
 
+import javax.swing.text.html.HTMLDocument.HTMLReader.HiddenAction;
+
 import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
@@ -8,6 +10,7 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import edu.wpi.first.wpilibj.Solenoid;
+import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
@@ -19,14 +22,13 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
  * directory.
  */
 public class Robot extends IterativeRobot {
-public DoubleSolenoid d01, d45;
+//public DoubleSolenoid d01, d45;
 public Solenoid d2, d3;
 public Joystick joystick;
 public JoystickButton button1;
 	Compressor compressor;
 	AnalogInput analog0;
 	PowerDistributionPanel pdp;
-
 	/**
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
@@ -45,14 +47,14 @@ public JoystickButton button1;
 		updatePressureSwitchReading();
 		compressor.start();
 		analog0 = new AnalogInput(0);
-		d01 = new DoubleSolenoid(0, 1);
+		//d01 = new DoubleSolenoid(0, 1);
 		joystick = new Joystick(1);
 		button1 = new JoystickButton(joystick, 1);
-		d45 = new DoubleSolenoid(4, 5);
+		//d45 = new DoubleSolenoid(4, 5);
 		d2 = new Solenoid(2);
 		d3 = new Solenoid(3);
 		
-		System.out.println(d01.get());
+		//System.out.println(d01.get());
 	}
 	
 	public void periodic () {
@@ -62,6 +64,9 @@ public JoystickButton button1;
 		}
 		
 		updatePressureSwitchReading();
+	double x = joystick.getX();
+	double throttle = joystick.getY();
+	System.out.println(String.format("throttle = %f", throttle ));
 	}
 	
 	PressureSwitchState lastPressureSwitch = PressureSwitchState.UNKNOWN;
@@ -96,19 +101,19 @@ public JoystickButton button1;
 		periodic();
 		if(button1.get()){
 			System.out.println("button down");
-			d01.set(Value.kForward);
-			d45.set(Value.kReverse);
-			d2.set(true);
-			d3.set(false);
+			//d01.set(Value.kForward);
+			//d45.set(Value.kReverse);
+			//d2.set(true);
+			//d3.set(false);
 		}
 		else{
 			System.out.println("button up");
-		d01.set(Value.kReverse);
-		d45.set(Value.kForward);
+		//d01.set(Value.kReverse);
+		//d45.set(Value.kForward);
 		d2.set(false);
 		d3.set(true);
 		}
-		System.out.println(d01.get());
+		//System.out.println(d01.get());
 	}
 
 	public void testInit() {
